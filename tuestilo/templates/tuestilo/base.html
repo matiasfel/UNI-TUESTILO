@@ -12,36 +12,50 @@
   </head>
   <body>
     <header>
-      <div class="header">
         <div class="logo">
             <a class="nav-logo" href="{% url 'base' %}"><h1>TU ESTILO</h1></a>
         </div>
         <nav>
           <ul class="nav-links">
             <li>
-                <a href="{% url 'info' %}" onclick="navbarPointer()" id="about">ACERCA DE</a>
+                <a href="{% url 'info' %}" id="about">ACERCA DE</a>
             </li>
             <li>
-                <a href="{% url 'catalogo' %}" onclick="navbarPointer()" id="catalog">CATALOGO</a>
+                <a href="{% url 'catalogo' %}" id="catalog">CATALOGO</a>
             </li>
             <li>
-                <a href="{% url 'contacto' %}" onclick="navbarPointer()" id="contact">CONTACTOS</a>
+                <a href="{% url 'contacto' %}" id="contact">CONTACTO</a>
             </li>
+            <li>
+                <a href="{% url 'carro' %}" id="carro">CARRITO</a>
+            </li>
+            
           </ul>
         </nav>
-        <a href="{% url 'login' %}">
-          <div class="center">
-            <button class="btn">
-              <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
-                <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
-                <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
-              </svg>
-              <span>INICIAR SESION</span>
-            </button>
-          </div>
-        </a>
-        <a onclick="openNav()" class="menu-nav" style="cursor: pointer;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'logout' %}">
+            <button class="btn-logout" style="margin-right: 60px;">
+              <div class="sign"><svg viewBox="0 0 512 512">
+                <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
+              <div class="text">Salir</div>
+            </button>       
+          </a> 
+        {% else %}
+          <a href="{% url 'login' %}" style="margin-left: 40px;">
+            <div class="center">
+              <button class="btn-login">
+                <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg-login">
+                  <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                  <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                </svg>
+                INICIAR SESIÓN
+              </button>
+            </div>
+          </a>
+        {% endif %}
+      
+        <a onclick="openNav()" class="menu-nav" style="cursor: pointer; ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
           </svg>
         </a>
@@ -49,25 +63,27 @@
         <div class="overlay" id="mobile-menu" style="cursor: pointer;">
           <p onclick="closeNav()" class="close">&times;</p>
           <div class="overlay-content">
-            <hr style="width: 100%; color: aliceblue; position: absolute; margin-bottom: 320px;">
+            <hr style="width: 100%; color: aliceblue;">
             <br>
             <a href="{% url 'info' %}">Acerca de</a>
             <a href="{% url 'catalogo' %}">Catalogo</a>
             <a href="{% url 'contacto' %}">Contacto</a>
             <a href="{% url 'login' %}">Iniciar sesion</a>
             <br>
-            <hr style="width: 100%; color: aliceblue; position: absolute; margin-top: 120px;">
+            <hr style="width: 100%; color: aliceblue;">
             <br><br>
             <h1 class="burger-social">REDES SOCIALES</h1>
           </div>
         </div>
-      </div>
     </header>
   
     {% block content %}
 
-    <div class="landing">
-
+    <div>
+      <section class="banner">
+        <video src="{% static 'css/modelo.mp4' %}" type="video/mp4" autoplay="true" muted="true" loop="true" style="  width: 100%;
+  min-height: 500px;"></video>
+      </section>
     </div>
 
     {% endblock %}
@@ -77,5 +93,12 @@
     </footer>
 
     <script src="{% static 'scripts/main.js' %}"></script>
+    <script type="text/javascript">
+      window.addEventListener("scroll", function(){
+          let header = document.querySelector("header");
+
+          header.classList.toggle("sticky", window.scrollY > 0)
+      })
+    </script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+{% extends 'tuestilo/base.html' %}
+
+{% block title %}
+    > Inicio de sesion
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <form action="" method="post">
+        {% csrf_token %}
+        Usuario: <br><input type="text" name="username">
+        <br>
+        Contraseña: <br><input type="password" name="password">
+        <br>
+        <br>
+        <button type="submit">Iniciar sesion</button>
+    </form>
+{% endblock %}
