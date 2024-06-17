@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU ESTILO {% block title %}> Inicio{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+            <a class="nav-logo" href="{% url 'base' %}"><h1>TU ESTILO</h1></a>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li>
+                <a href="{% url 'info' %}" onclick="navbarPointer()" id="about">ACERCA DE</a>
+            </li>
+            <li>
+                <a href="{% url 'catalogo' %}" onclick="navbarPointer()" id="catalog">CATALOGO</a>
+            </li>
+            <li>
+                <a href="{% url 'contacto' %}" onclick="navbarPointer()" id="contact">CONTACTOS</a>
+            </li>
+          </ul>
+        </nav>
+        <a href="{% url 'login' %}">
+          <div class="center">
+            <button class="btn">
+              <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg">
+                <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+                <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+              </svg>
+              <span>INICIAR SESION</span>
+            </button>
+          </div>
+        </a>
+        <a onclick="openNav()" class="menu-nav" style="cursor: pointer;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+          </svg>
+        </a>
+        
+        <div class="overlay" id="mobile-menu" style="cursor: pointer;">
+          <p onclick="closeNav()" class="close">&times;</p>
+          <div class="overlay-content">
+            <hr style="width: 100%; color: aliceblue; position: absolute; margin-bottom: 320px;">
+            <br>
+            <a href="{% url 'info' %}">Acerca de</a>
+            <a href="{% url 'catalogo' %}">Catalogo</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+            <a href="{% url 'login' %}">Iniciar sesion</a>
+            <br>
+            <hr style="width: 100%; color: aliceblue; position: absolute; margin-top: 120px;">
+            <br><br>
+            <h1 class="burger-social">REDES SOCIALES</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    {% block content %}
+
+    <div class="landing">
+
+    </div>
+
+    {% endblock %}
+
+    <footer>
+
+    </footer>
+
+    <script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>
