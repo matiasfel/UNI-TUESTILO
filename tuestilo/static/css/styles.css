@@ -94,12 +94,12 @@ header .nav-links a:hover {
     header.sticky .logo h1 {
         font-weight: 800;
         color: rgba(255, 255, 255);
-        opacity: 0.5;
+        opacity: 0.8;
     }
 
     header.sticky .logo h1:hover {
         opacity: 1;
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 
     header.sticky .nav-links a {
