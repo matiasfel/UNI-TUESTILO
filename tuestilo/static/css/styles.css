@@ -14,10 +14,8 @@
 /* Estilo para la etiqueta <body> de todos los .html */
 
 body {
-    background-image: url(background.png);
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
-    height: 200vh;
 }
 
 /*  -----------------------------------  */
@@ -74,6 +72,10 @@ header.sticky .svg {
     stroke: rgb(255, 255, 255);
 }
 
+header.sticky .btn-login {
+    border: 1px solid white;
+}
+
 header.sticky .btn-logout {
     --black: #ffffff;
     --ch-black: #ffffff;
@@ -118,7 +120,6 @@ header .nav-links a {
 
 header .nav-links a:hover {
     border: 1px solid #000000;
-    color: #000000;
 }
 
 /* Login button */
@@ -134,7 +135,9 @@ header .nav-links a:hover {
     height: 100%;
     cursor: pointer;
     background: transparent;
-    border: 1px solid #919191;
+    backdrop-filter: blur(10px);
+    color: rgb(0, 0, 0);
+    border: 1px solid #000000;
     outline: none;
     transition: 0.6s ease-in-out;
 }
@@ -144,7 +147,7 @@ header .nav-links a:hover {
     left: 0;
     top: 0;
     fill: none;
-    stroke: #000000;
+    stroke: #ffffff;
     stroke-dasharray: 150 480;
     stroke-dashoffset: 150;
     transition: 1s ease-in-out;
@@ -217,7 +220,7 @@ header .nav-links a:hover {
   .btn-logout:hover {
     width: 125px;
     border-radius: 5px;
-    transition-duration: .3s;
+    transition-duration: 0.6s;
   }
   
   .btn-logout:hover .sign {
@@ -257,7 +260,8 @@ header .overlay{
     z-index: 9999;
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
     transition: all 0.3s ease-in-out 0s;
 }
 
@@ -316,12 +320,16 @@ header .menu-nav:hover {
         padding: 0;
     }
 
+    header .logo h1 {
+        font-size: 30px;
+    }
+
     .btn-logout {
         margin: 0;
     }
 }
 
-@media screen and (max-width: 1110px) {
+@media screen and (max-width: 1080px) {
     .nav-links, .nav-button {
         display: none;
     }
@@ -354,36 +362,221 @@ header .menu-nav:hover {
 /*             Other contents */
 /*  -----------------------------------  */
 
-.banner {
+.before-banner {
     display: grid;
     justify-content: center;
     align-items: center;
     position: relative;
     max-width: 100%;
     height: 100vh;
-    background: url(banner.jpg);
-    filter: saturate(2);
+    background: url(before-login.jpg);
     background-size: cover;
 }
 
-.banner-content {
-    display: inline;
-    max-width: 800px;
-    height: 420px;
+.after-banner {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+    background: url(after-login.jpg);
+    background-size: cover;
 }
 
-.banner-content h1 {
-    margin: 35px;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 800;
+.after-cont {
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);   
 }
 
-.banner-content p {
-    text-align: center;
-    margin: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: 400;
+.login {   
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 720px;
+    height: 520px;
+    background-color: rgb(138, 138, 138);
 }
+
+
+/* Input */
+
+.group {
+    position: relative;
+   }
+   
+   .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #515151;
+    background: transparent;
+   }
+   
+   .input:focus {
+    outline: none;
+   }
+   
+   label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+   }
+   
+   .input:focus ~ label, .input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+   }
+   
+   .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+   }
+   
+   .bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+   }
+   
+   .bar:before {
+    left: 50%;
+   }
+   
+   .bar:after {
+    right: 50%;
+   }
+   
+   .input:focus ~ .bar:before, .input:focus ~ .bar:after {
+    width: 50%;
+   }
+   
+   .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+   }
+   
+   .input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+   }
+   
+   @keyframes inputHighlighter {
+    from {
+     background: #5264AE;
+    }
+   
+    to {
+     width: 0;
+     background: transparent;
+    }
+   }
+
+/* Checkbox */
+
+/* Hide the default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
   
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    --clr: #0B6E4F;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: 300ms;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--clr);
+    border-radius: .5rem;
+    animation: pulse 500ms ease-in-out;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #E0E0E2;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 #0B6E4F90;
+      rotate: 20deg;
+    }
+  
+    50% {
+      rotate: -20deg;
+    }
+  
+    75% {
+      box-shadow: 0 0 0 10px #0B6E4F60;
+    }
+  
+    100% {
+      box-shadow: 0 0 0 13px #0B6E4F30;
+      rotate: 0;
+    }
+  }

@@ -4,14 +4,13 @@
     > Inicio de sesion
 {% endblock %}
 
+{% block styles %}
+    <style>
+    </style>
+{% endblock %}
+
 {% block content %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br><br>
     <form action="" method="post">
         {% csrf_token %}
         Usuario: <br><input type="text" name="username">
