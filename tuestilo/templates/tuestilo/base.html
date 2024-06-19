@@ -126,6 +126,7 @@
 
       {% if request.user.is_authenticated %}
         <section class="banner">
+          <h1>Hola, {{ user.get_username }}</h1>
         </section>
       {% else %}
         <section class="banner">

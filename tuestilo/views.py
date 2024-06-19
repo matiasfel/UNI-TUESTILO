@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
+from .forms import CustomUserCreationForm
 
 # Create your views here.
 
@@ -18,6 +20,23 @@ def catalogo(request):
 def contacto(request):
     context = {}
     return render(request, 'tuestilo/contacto.html', context)
+
+def register(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('base') # Te renvia hacia la pagina principal con el usuario logeado
+        else:
+            return redirect('register') # Te mantiene en la pagina de registrarse sin ningun usuario.
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, 'registration/register.html', {'form': form})
 
 @login_required
 

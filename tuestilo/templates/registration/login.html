@@ -23,8 +23,9 @@
             Usuario: <br><input type="text" name="username">
             <br>
             Contraseña: <br><input type="password" name="password">
+            <br>
             <br><br>
-            <p>No tienes una cuenta? <a href="#">hazte una.</a></p>
+            <p>No tienes una cuenta? <a href="{% url 'register' %}">registrate.</a></p>
             <br>
             <button type="submit">Iniciar sesion</button>
         </form>
