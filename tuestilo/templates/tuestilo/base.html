@@ -12,42 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+
     {% block styles %}
     {% endblock %}
-    
-    {% if request.user.is_authenticated %}
-      <style>
-        .banner {
-          display: grid;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          background: url("{% static 'img/before-login.jpg' %}");
-          max-width: 100%;
-          height: 100vh;
-          background-size: cover;
-        }
-      </style>
-    {% else %}
-      <style>
-        .banner {
-          display: grid;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          background: url("{% static 'img/before-login.jpg' %}");
-          max-width: 100%;
-          height: 100vh;
-          background-size: cover;
-        }
-      </style>
-    {% endif %}
 
   </head>
   <body>
     <header>
         <div class="logo">
-            <a class="nav-logo" href="{% url 'base' %}"><h1>TU ESTILO <i class="fi fi-br-heart"></i></h1></a>
+            <a class="nav-logo" href="{% url 'base' %}"><h1>TU ESTILO</h1></a>
         </div>
         <nav>
           <ul class="nav-links">
@@ -86,6 +59,7 @@
             </div>
           </a>
         {% endif %}
+
         <a onclick="openNav()" class="menu-nav" style="cursor: pointer; ">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
@@ -95,18 +69,21 @@
         <div class="overlay" id="mobile-menu" style="cursor: pointer;">
           <p onclick="closeNav()" class="close">&times;</p>
           <div class="overlay-content">
+              <h1>YOUR STYLE</h1>
             <hr style="width: 100%; color: aliceblue;">
-            <br>
-            <a href="{% url 'info' %}">Acerca de</a>
-            <a href="{% url 'catalogo' %}">Catalogo</a>
-            <a href="{% url 'contacto' %}">Contacto</a>
-            {% if request.user.is_authenticated %}
-              <a href="{% url 'logout' %}">Cerrar sesion</a>
-            {% else %}
-              <a href="{% url 'login' %}">Iniciar sesion</a>
-            {% endif %}
+              <br>
+              <a href="{% url 'carro' %}"    class="overlay-links">Carrito</a>
+              <a href="{% url 'catalogo' %}" class="overlay-links">Catalogo</a>
+              <a href="{% url 'contacto' %}" class="overlay-links">Contacto</a>
+              <a href="{% url 'info' %}"     class="overlay-links">Acerca de</a>
+              {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="overlay-links">Cerrar sesion</a>
+              {% else %}
+                <a href="{% url 'login' %}"  class="overlay-links">Iniciar sesion</a>
+              {% endif %}
               <br>
             <hr style="width: 100%; color: aliceblue;">
+
             <div class="social-links">
               <a href="https://www.facebook.com/DuocUC/?locale=es_LA" target="_blank" class="social-icon">
                 <i class="fab fa-facebook-f"></i>
@@ -118,6 +95,7 @@
                 <i class="fab fa-instagram"></i>
               </a>
             </div>
+
           </div>
         </div>
     </header>
@@ -129,9 +107,58 @@
           <h1>Hola, {{ user.get_username }}</h1>
         </section>
       {% else %}
-        <section class="banner">
-          <h1>Hola</h1>
-        </section>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-1.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-2.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-3.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-4.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-5.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-6.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-7.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-8.jpg' %}" style="object-fit: cover; height: 100vh;">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <h2>YOUR STYLE</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid bg-black text-center" style="height: 50vh;">
+          <div class="row">
+            <div class="col">
+
+            </div>
+          </div>
+        </div>
       {% endif %}
 
     {% endblock %}
@@ -181,16 +208,16 @@
       <p>&copy; 2024 TU ESTILO. Todos los derechos reservados.</p>
     </div>
 
-    {% block script %}
-      <script type="text/javascript">
-        window.addEventListener("scroll", function(){
-            let header = document.querySelector("header");
-
-            header.classList.toggle("sticky", window.scrollY > 0)
-        })
-      </script>
+    {% block scripts %}
     {% endblock %}
 
+    <script type="text/javascript">
+      window.addEventListener("scroll", function(){
+          let header = document.querySelector("header");
+
+          header.classList.toggle("sticky", window.scrollY > 0)
+      })
+    </script>
     <script src="{% static 'scripts/main.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
