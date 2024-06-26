@@ -43,3 +43,15 @@ def register(request):
 def carro(request):
     context = {}
     return render(request, 'tuestilo/carro.html', context)
+
+def conf_usuario(request):
+    context = {}
+    return render(request, 'tuestilo/conf_usuario.html', context)
+
+from django.contrib.admin.views.decorators import staff_member_required
+
+@staff_member_required
+
+def conf_admin(request):
+    context = {}
+    return render(request, 'tuestilo/conf_admin.html', context)
