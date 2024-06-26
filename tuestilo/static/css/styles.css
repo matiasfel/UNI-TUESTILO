@@ -462,6 +462,15 @@ header.sticky .btn-logout:hover {
   padding: 20px;
 }
 
+.form-group {
+  margin: 30px;
+}
+
+.form-group label {
+  font-family: monospace;
+  margin-bottom: 10px;
+}
+
 
 /*  INPUTS  */
 
