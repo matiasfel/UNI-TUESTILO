@@ -400,7 +400,7 @@ header.sticky .btn-logout:hover {
      /*  contents */
 /*  ----------------- */
 
-/* .carousel-caption {
+.carousel-caption {
   position: absolute;
   top: 0;
   left: 0;
@@ -413,10 +413,9 @@ header.sticky .btn-logout:hover {
 
 .carousel-text {
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
   color: white;
   text-align: center;
@@ -424,11 +423,14 @@ header.sticky .btn-logout:hover {
 }
 
 .carousel-text h1 {
+  display: inline-block;
   color: #000000;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 10dvh;
+  background-color: rgba(255, 255, 255, 0.515);
+  padding: 40px;
+  font-size: 8dvw;
   font-weight: bold;
-} */
+}
 
 .post-carousel {
   display: flex;
@@ -442,16 +444,9 @@ header.sticky .btn-logout:hover {
 
 .post-carousel .child-1 {
   border: 1px solid black;
-  margin: 50px;
   max-width: 620px;
   width: 620px;
   height: 620px;
-}
-
-.post-carousel .child-1 .bd-placeholder-img {
-  object-fit: cover;
-  max-width: 618px;
-  height: 618px;
 }
 
 .post-carousel .child-2 {
@@ -460,135 +455,16 @@ header.sticky .btn-logout:hover {
   height: 620px;
 }
 
-.post-carousel .child-2 h1 {
-  font-size: 2dvw;
-}
-
-/* .hero-subtitle {
-  color: black;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  margin: 10px;
-} */
-
 /* Estilos para el formulario */
 
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-color: #ffffff; /* Color de fondo opcional para propósitos de visualización */
+.card-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 20px;
 }
 
-.login-box {
-  border: 1px solid black;
-  width: 620px; /* Reducido el ancho para que sea más adecuado para pantallas */
-  padding: 20px; /* Añadido padding para separar el contenido del borde */
-  background-color: #fff; /* Fondo blanco para el formulario */
-}
-
-.login-box .login-title {
-  text-align: center;
-  margin-bottom: 20px; /* Espacio debajo del título */
-}
-
-.inputs {
-  margin-bottom: 20px; /* Espacio entre grupos de entradas */
-}
-
-.enviar {
-  text-align: center;
-}
-
-.enviar button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.enviar button:hover {
-  background-color: #0056b3;
-}
 
 /*  INPUTS  */
 
-  .wave-group {
-    position: relative;
-  }
-
-  .wave-group .input {
-    font-size: 16px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 200px;
-    border: none;
-    border-bottom: 1px solid #515151;
-    background: transparent;
-  }
-
-  .wave-group .input:focus {
-    outline: none;
-  }
-
-  .wave-group .label {
-    color: #999;
-    font-size: 18px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    display: flex;
-  }
-
-  .wave-group .label-char {
-    transition: 0.2s ease all;
-    transition-delay: calc(var(--index) * .05s);
-  }
-
-  .wave-group .input:focus ~ label .label-char,
-  .wave-group .input:valid ~ label .label-char {
-    transform: translateY(-20px);
-    font-size: 14px;
-    color: #5264AE;
-  }
-
-  .wave-group .bar {
-    position: relative;
-    display: block;
-    width: 200px;
-  }
-
-  .wave-group .bar:before,.wave-group .bar:after {
-    content: '';
-    height: 2px;
-    width: 0;
-    bottom: 1px;
-    position: absolute;
-    background: #5264AE;
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
-  }
-
-  .wave-group .bar:before {
-    left: 50%;
-  }
-
-  .wave-group .bar:after {
-    right: 50%;
-  }
-
-  .wave-group .input:focus ~ .bar:before,
-  .wave-group .input:focus ~ .bar:after {
-    width: 50%;
-  }
 
 /* ------------------------------------- */
 /*                Footer */

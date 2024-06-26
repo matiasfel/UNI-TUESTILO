@@ -105,30 +105,51 @@
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-1.jpg' %}" style="object-fit: cover; height: 100vh;">
-<!--               <div class="carousel-text d-none d-md-block">
-            <h1>YOUR STYLE</h1>
-          </div> -->
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-2.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-3.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-4.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-5.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-6.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-7.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
           <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-8.jpg' %}" style="object-fit: cover; height: 100vh;">
+          <div class="carousel-text d-md-block">
+            <h1>TU ESTILO</h1>
+          </div>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
@@ -142,41 +163,7 @@
     </div>
 
     <div class="post-carousel">
-       <section class="child-1">
-          <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-title="" data-description="">
-                <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/promo-carousel-1.jpg' %}">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item" data-title="Título para la imagen 2" data-description="Descripción para la imagen 2">
-                  <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/promo-carousel-2.jpg' %}">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                  </div>
-                </div>
-              <div class="carousel-item" data-title="Título para la imagen 3" data-description="Descripción para la imagen 3">
-                  <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/promo-carousel-3.jpg' %}">
-                  <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                  </div>
-              </div>
-            </div>
-          </div>
-       </section>
-       <section class="child-2">
-        <h1>Texto de prueba, si, prueba.</h1>
-        <p>Texto de prueba, si, prueba., chacana culiao te odio
-          :v :V :v, si, okasd,s diasaklskasfalsska,. asfksaflsa 
-          kfasfkakfalakfsaf asflfasklakaalla safkl lasfakfsaflk
-          kfaslfaksalas aslfsalfalasfkaskaf asflsakaakflaslfasl
-        </p>
-      </section>
+      <h2>HOla, soy un subtitulo</h2>
     </div>
 
     {% endblock %}
@@ -222,19 +209,6 @@
         <p>&copy; 2024 TU ESTILO. Todos los derechos reservados.</p>
       </div>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-       $(document).ready(function() {
-          $('#carouselExampleCaptions').on('slid.bs.carousel', function (event) {
-             var slideIndex = $(this).find('.carousel-item.active').index();
-             var titleToShow = $(this).find('.carousel-item').eq(slideIndex).data('title');
-             var descriptionToShow = $(this).find('.carousel-item').eq(slideIndex).data('description');
-             $('.child-2 h1').text(titleToShow);
-             $('.child-2 p').text(descriptionToShow);
-          });
-       });
-    </script>    
     
     <script type="text/javascript">
       window.addEventListener("scroll", function(){
@@ -246,5 +220,6 @@
     <script src="{% static 'scripts/main.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 </html>
