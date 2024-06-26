@@ -55,7 +55,7 @@ header .logo h1 {
 }
 
 header .logo h1:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 header .nav-links {
@@ -256,7 +256,6 @@ header .overlay .overlay-content h1 {
   margin-bottom: 20px;
 }
 
-
 header .overlay .overlay-content hr {
   width: 100%;
   border: 1px solid rgb(255, 255, 255);
@@ -329,7 +328,7 @@ header .overlay .social-icon:hover {
 
 header.sticky {
   background-color: #000000;
-  height: 90px;
+  height: 65px;
   z-index: 998; 
 }
 
@@ -354,6 +353,7 @@ header.sticky .nav-links a {
 
 header.sticky .nav-links a:hover {
   opacity: 1;
+  border: 1px solid white;
 }
 
 header.sticky .btn-login {
@@ -430,26 +430,38 @@ header.sticky .btn-logout:hover {
   font-weight: bold;
 } */
 
-.hero-section {
-  background: #ffffff;
-  padding: 300px 0;
+.post-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  max-width: 100%;
+  height: 75vh;
 }
 
-.hero-section a {
-  text-decoration: none;
+.post-carousel .child-1 {
+  border: 1px solid black;
+  margin: 50px;
+  max-width: 620px;
+  width: 620px;
+  height: 620px;
 }
 
-.hero-title {
-  color: black;
-  opacity: 0.5;
-  font-size: 10dvh;
-  font-weight: 700;
-  margin: 20px;
-  transition: 0.6s;
+.post-carousel .child-1 .bd-placeholder-img {
+  object-fit: cover;
+  max-width: 618px;
+  height: 618px;
 }
 
-.hero-title:hover {
-  opacity: 1;
+.post-carousel .child-2 {
+  border: 1px solid black;
+  width: 420px;
+  height: 620px;
+}
+
+.post-carousel .child-2 h1 {
+  font-size: 2dvw;
 }
 
 /* .hero-subtitle {
@@ -598,7 +610,7 @@ header.sticky .btn-logout:hover {
 .footer__logo {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 100;
-  text-transform: lowercase;
+  text-transform: none;
   font-size: 2.5rem;
 }
 
