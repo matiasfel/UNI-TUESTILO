@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+    <link rel="stylesheet" href="{% static 'css/crud.css' %}">
+</head>
+<body>
+    <h1>Editar Usuario</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="button-container">
+            <button type="submit">Guardar</button>
+            <a href="{% url 'crud' %}" class="btn">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

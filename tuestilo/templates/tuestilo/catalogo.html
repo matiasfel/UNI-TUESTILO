@@ -1,38 +1,105 @@
 {% extends 'tuestilo/base.html' %}
+{% load static %}
 
 {% block title %}
   > Catalogo
 {% endblock %}
 
+{% block styles %}
+  <style>
+    .btn.btn-primary {
+      background-color: black;
+      color: white;
+      border: none;
+      outline: none;
+      margin: 5px;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+  <div class="articulos">
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-1.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>ABRIGO LARGO CON LANA</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP $65.000</span> <span id="span2">-39% CLP 39.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-2.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>BLAZER TRAJE CON LANA</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 123.990</span> <span id="span2">-67% CLP 39.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-3.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>CAZADORA ENCERADA CUELLO COMBINADO</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 123.990</span> <span id="span2">-59% CLP 49.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-4.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>ABRIGO LARGO CON LANA</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 65.990</span> <span id="span2">-54% CLP 29.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-5.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>CAZADORA DENIM</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 50.990</span> <span id="span2">-41% CLP 29.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-6.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>CAZADORA ACOLCHADA COLOR BLOCK</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 65.990</span> <span id="span2">-54% CLP 29.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-7.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>CAMISA ALGODÓN - LINO</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 37.990</span> <span id="span2">-57% CLP 15.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+    <div class="articulo">
+      <img src="{% static 'img/catalogo/cat-8.jpg' %}" alt="">
+      <div class="articulo-text">
+        <p>PANTALÓN PARACHUTE LAVADO</p>
+      </div>
+      <div class="articulo-text">
+        <p><span id="span1">CLP 50.990</span> <span id="span2">-54% CLP 22.990</span></p>
+      </div>
+      <button type="button" class="btn btn-primary">Añadir</button>
+    </div>
+  </div>
+
 {% endblock %}

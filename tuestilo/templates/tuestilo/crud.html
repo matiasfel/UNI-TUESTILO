@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD de Usuarios</title>
+    <link rel="stylesheet" href="{% static 'css/crud.css' %}">
+</head>
+<body>
+    <h1>CRUD de Usuarios para 'TU ESTILO'</h1>
+    <a href="{% url 'add_user' %}">Agregar Usuario</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de usuario</th>
+                <th>Correo electronico</th>
+                <th>Primer/segundo nombre</th>
+                <th>Primer/segundo apellido</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>
+                    <a href="{% url 'edit_user' user.id %}">Editar</a>
+                    <a href="{% url 'delete_user' user.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'base' %}">Volver a Inicio</a>
+</body>
+</html>

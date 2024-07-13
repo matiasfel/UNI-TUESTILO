@@ -54,10 +54,6 @@ header .logo h1 {
   padding: 5px;
 }
 
-header .logo h1:hover {
-  transform: scale(1.05);
-}
-
 header .nav-links {
   list-style: none;
   margin-top: 20px;
@@ -79,7 +75,8 @@ header .nav-links a {
 }
 
 header .nav-links a:hover {
-  color: #000000;
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
 }
 
 .bi {
@@ -396,9 +393,9 @@ header.sticky .btn-logout:hover {
   --ch-white: #2e2e2e;
 }
 
-/*  ------------------ */
-     /*  contents */
-/*  ----------------- */
+/*  ------------------  */
+    /*  body contents */
+/*  -----------------  */
 
 .carousel-caption {
   position: absolute;
@@ -470,9 +467,43 @@ header.sticky .btn-logout:hover {
   margin-bottom: 10px;
 }
 
+/*  ------------------  */
+    /*  body contents */
+/*  -----------------  */
 
-/*  INPUTS  */
+.articulos {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(350px, 1fr)
+  );
+  margin: 16vh 10vh 36vh 10vh;
+  gap: 10px;
+  font-family: monospace;
+}
 
+.articulos .articulo {
+  border: 1px solid black;
+}
+
+.articulos .articulo img {
+  width: 100%;
+  max-width: 350px;
+}
+
+.articulos .articulo #span1 {
+  text-decoration: line-through;
+}
+
+.articulos .articulo #span2 {
+  background-color: rgb(0, 255, 0);
+}
+
+.articulos .articulo-text {
+  height: 25px;
+  text-indent: 5px;
+}
 
 /* ------------------------------------- */
 /*                Footer */

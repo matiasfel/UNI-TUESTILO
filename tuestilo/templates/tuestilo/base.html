@@ -15,51 +15,61 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-brands/css/uicons-brands.css'>
 
     {% block styles %}
+      <style>
+        .bd-placeholder-img {
+          object-fit: cover; 
+          height: 100vh;
+        }
+      </style>
     {% endblock %}
 
   </head>
   <body>
     <header>
-        <div class="logo">
-            <a class="nav-logo" href="{% url 'base' %}"><h1>TU ESTILO</h1></a>
+      <div class="logo">
+        <a class="nav-logo" href="{% url 'base' %}"><h1>TU ESTILO</h1></a>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li>
+            <a href="{% url 'info' %}" id="about">ACERCA DE</a>
+        </li>
+        <li>
+            <a href="{% url 'catalogo' %}" id="catalog">CATALOGO</a>
+        </li>
+        <li>
+            <a href="{% url 'contacto' %}" id="contact">CONTACTO</a>
+        </li>
+        <li>
+            <a href="{% url 'carro' %}" id="carro">CARRITO</a>
+        </li>
+      </ul>
+    </nav>
+    {% if request.user.is_authenticated %}
+      <form id="logout-form" method="post" action="{% url 'logout' %}" style="display: inline;">
+        {% csrf_token %}
+        <button class="btn-logout" style="margin-right: 60px; cursor: pointer;">
+          <div class="sign">
+            <svg viewBox="0 0 512 512">
+              <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path>
+            </svg>
+          </div>
+          <div class="text">Salir</div>
+        </button>
+      </form>
+    {% else %}
+      <a href="{% url 'login' %}" style="margin-left: 40px;">
+        <div class="center">
+          <button class="btn-login">
+            <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg-login">
+              <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+              <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
+            </svg>
+            INICIAR SESIÓN
+          </button>
         </div>
-        <nav>
-          <ul class="nav-links">
-            <li>
-                <a href="{% url 'info' %}" id="about">ACERCA DE</a>
-            </li>
-            <li>
-                <a href="{% url 'catalogo' %}" id="catalog">CATALOGO</a>
-            </li>
-            <li>
-                <a href="{% url 'contacto' %}" id="contact">CONTACTO</a>
-            </li>
-            <li>
-                <a href="{% url 'carro' %}" id="carro">CARRITO</a>
-            </li>
-          </ul>
-        </nav>
-        {% if request.user.is_authenticated %}
-          <a href="{% url 'logout' %}">
-            <button class="btn-logout" style="margin-right: 60px;">
-              <div class="sign"><svg viewBox="0 0 512 512">
-                <path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
-              <div class="text">Salir</div>
-            </button>       
-          </a> 
-        {% else %}
-          <a href="{% url 'login' %}" style="margin-left: 40px;">
-            <div class="center">
-              <button class="btn-login">
-                <svg viewBox="0 0 150 50" height="50px" width="150px" class="svg-login">
-                  <polyline class="bg-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
-                  <polyline class="hl-line" points="149,1 149,49 1,49 1,1 149,1"></polyline>
-                </svg>
-                INICIAR SESIÓN
-              </button>
-            </div>
-          </a>
-        {% endif %}
+      </a>
+    {% endif %}    
 
         <a onclick="openNav()" class="menu-nav" style="cursor: pointer; ">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi bi-list" viewBox="0 0 16 16">
@@ -101,90 +111,42 @@
   
     {% block content %}
 
-      {% if request.user.is_authenticated %}
-        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-2.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-1.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-3.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-4.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-5.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-6.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-7.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-8.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-1.jpg' %}">
         </div>
-    
-        <div class="post-carousel">
-          <h2>Hola, {{ user.get_username }}</h2>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-2.jpg' %}">
         </div>
-
-      {% else %}
-        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-1.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-2.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-3.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-4.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-5.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-6.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-7.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-8.jpg' %}" style="object-fit: cover; height: 100vh;">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-3.jpg' %}">
         </div>
-  
-        <div class="post-carousel">
-          <h2>No has iniciado sesion</h2>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-4.jpg' %}">
         </div>
-      {% endif %}
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-5.jpg' %}">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-6.jpg' %}">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-7.jpg' %}">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 img-fluid" src="{% static 'img/carousel-img/bg-carousel-8.jpg' %}">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
     {% endblock %}
 
@@ -195,13 +157,13 @@
       
       <ul class="footer__nav">
         <li class="nav__item">
-          <h2 class="nav__title">Opciones de navegacion</h2>
+          <h2 class="nav__title">Opciones de navegación</h2>
           <ul class="nav__ul">
             <li>
               <a href="{% url 'info' %}">Acerca de</a>
             </li>
             <li>
-              <a href="{% url 'catalogo' %}">Catalogo</a>
+              <a href="{% url 'catalogo' %}">Catálogo</a>
             </li>
             <li>
               <a href="{% url 'contacto' %}">Contacto</a>
@@ -224,16 +186,12 @@
             </li>
           </ul>
         </li>
-        {% if user.is_superuser %}
-        <li class="nav__item">
-          <h2 class="nav__title">Opciones de administrador</h2>
-          <ul class="nav__ul">
+        {% if user.is_staff %}
+        <li class="nav__item" style="color: red;">
+          <h2 class="nav__title">Administración</h2>
+          <ul class="nav__ul" style="color: rgb(235, 95, 95);">
             <li>
-              <a href="{% url 'conf_admin' %}" style="color: red;">Listar usuarios</a>
-            </li>
-            
-            <li>
-              <a href="{% url 'conf_admin' %}" style="color: red;">Modificar permisos</a>
+              <a href="{% url 'crud' %}" style="color: red;">Crud panel</a>
             </li>
           </ul>
         </li>
@@ -243,6 +201,19 @@
         <p>&copy; 2024 TU ESTILO. Todos los derechos reservados.</p>
       </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function() {
+          $('#carouselExampleCaptions').on('slid.bs.carousel', function (event) {
+             var slideIndex = $(this).find('.carousel-item.active').index();
+             var titleToShow = $(this).find('.carousel-item').eq(slideIndex).data('title');
+             var descriptionToShow = $(this).find('.carousel-item').eq(slideIndex).data('description');
+             $('.child-2 h1').text(titleToShow);
+             $('.child-2 p').text(descriptionToShow);
+          });
+       });
+    </script>    
     
     <script type="text/javascript">
       window.addEventListener("scroll", function(){
@@ -254,6 +225,5 @@
     <script src="{% static 'scripts/main.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 </html>
